@@ -53,3 +53,32 @@ const userSelection = () => {
 
   console.log("Your final cart:", userCart);
 };
+
+// function to calculate the total cost and display the remaining change
+const calculateCost = () => {
+  let totalCost = 0;
+
+  for (let product in userCart) {
+    let index = products.indexOf(product);
+
+    if (index !== -1) {
+      let cost = prices[index] * userCart[product];
+      totalCost += cost;
+    } else {
+      console.log(`Product '${product}' not found.`);
+    }
+  }
+
+  console.log(`Total cost: R${totalCost}`);
+
+  // calculate and display the change
+  if (totalCost > userBudget) {
+    console.log("Insufficient funds. You don't have enough budget.");
+  } else {
+    let remainingBudget = userBudget - totalCost;
+    console.log(`Remaining budget: R${remainingBudget}`);
+  }
+};
+
+userSelection();
+calculateCost();
