@@ -32,7 +32,7 @@ const userSelection = () => {
 
     // ask user for quantity
     let quantity = parseInt(
-      prompt(`How many ${products[productIndex]}s would you like to buy?`)
+      prompt(`How many ${products[productIndex]}s would you like to buy? `)
     );
 
     // validate the quantity
